@@ -69,5 +69,9 @@ def start_game() -> None:
     print("Game is over, thanks for playing the number guessing game")
 
 
+# This statement checks if the current file is being run directly (not imported as a module). If it's running
+# directly, the `__name__` variable will be set to `'__main__'`. This is often used to run test code or a main
+# function (like `start_game()`) only when the script is executed directly, but not when the script is imported
+# as a module in another script.
 if __name__ == '__main__':
     start_game()
