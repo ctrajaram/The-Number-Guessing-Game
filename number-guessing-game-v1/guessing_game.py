@@ -37,7 +37,7 @@ def start_game() -> None:
     print("*" * 40)
     print("Welcome to the Number Guessing Game")
     print("*" * 40)
-    user_guess: int = 0
+    user_guess: int
     num_of_tries: int = 1
     number_to_be_guessed: int = random.randint(1, 10)
     while True:
@@ -54,12 +54,12 @@ def start_game() -> None:
     while user_guess != number_to_be_guessed:
         if user_guess < number_to_be_guessed:
             print(f"It's higher than {user_guess}")
-            user_guess: int = int(input("Guess a number between 1 and 10 : "))
+            user_guess = int(input("Guess a number between 1 and 10 : "))
             num_of_tries += 1
             continue
         else:
             print(f"It's lower than {user_guess}")
-            user_guess: int = int(input("Guess a number between 1 and 10 : "))
+            user_guess = int(input("Guess a number between 1 and 10 : "))
             num_of_tries += 1
             continue
     stmt = f"Got it in {num_of_tries} attempt" if num_of_tries == 1 else f"Got it in {num_of_tries} attempts"
