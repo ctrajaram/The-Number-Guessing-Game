@@ -34,12 +34,14 @@ def start_game() -> None:
     Number Guessing Game function that allows a user to guess a number between 1 and 10 and lest them know
     how many attempts they took to guess the correct number generated randomly between 1 and 10
     """
+
     print("*" * 40)
     print("Welcome to the Number Guessing Game")
     print("*" * 40)
-    user_guess: int
+    user_guess: int = 0
     num_of_tries: int = 1
     number_to_be_guessed: int = random.randint(1, 10)
+    # Ensure the user has to enter a number between 1 and 10 to continue
     while True:
         try:
             user_guess: int = int(input("Guess a number between 1 and 10 : "))
