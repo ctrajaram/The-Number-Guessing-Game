@@ -40,6 +40,7 @@ def start_game() -> None:
     print("*" * 40)
     user_guess: int = 0
     num_of_tries: int = 1
+    play_again: str = 'NO'
     number_to_be_guessed: int = random.randint(1, 10)
     # Ensure the user has to enter a number between 1 and 10 to continue
     while True:
@@ -53,7 +54,7 @@ def start_game() -> None:
             print("It is out of range so please enter a number between 1 and 10")
             continue
 
-    while user_guess != number_to_be_guessed:
+    while user_guess != number_to_be_guessed or play_again.upper() == 'YES':
         if user_guess < number_to_be_guessed:
             print(f"It's higher than {user_guess}")
             user_guess = int(input("Guess a number between 1 and 10 : "))
