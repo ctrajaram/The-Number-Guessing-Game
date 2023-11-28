@@ -78,6 +78,8 @@ def start_game() -> None:
     high_score = num_of_tries if num_of_tries < high_score else high_score
     print(stmt)
     play_again = input("Do you want to play again type YES or NO: ")
+    while play_again.upper() not in ('YES', 'NO'):
+        play_again = input("Type YES to play another game or NO to exit the game: ")
     if play_again.upper() == 'NO':
         print("Game is over, thanks for playing the number guessing game")
     else:
