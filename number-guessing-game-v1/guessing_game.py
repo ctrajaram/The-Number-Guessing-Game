@@ -46,11 +46,11 @@ def start_game() -> None:
         try:
             user_guess: int = int(input("Guess a number between 1 and 10 : "))
             if user_guess < 1 or user_guess > 10:
-                print("Please enter a number between 1 and 10")
+                print("It is out of range so please enter a number between 1 and 10")
                 continue
             break
         except ValueError as e:
-            print("Please enter a number between 1 and 10")
+            print("It is out of range so please enter a number between 1 and 10")
             continue
 
     while user_guess != number_to_be_guessed:
