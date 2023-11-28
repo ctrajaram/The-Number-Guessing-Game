@@ -28,13 +28,15 @@ Project 1 - The Number Guessing Game
 
 import random
 
+high_score: any = None
+lowest_num_tries: any = None
 
 def start_game() -> None:
     """
     Number Guessing Game function that allows a user to guess a number between 1 and 10 and lest them know
     how many attempts they took to guess the correct number generated randomly between 1 and 10
     """
-
+    global high_score, lowest_num_tries
     print("*" * 40)
     print("Welcome to the Number Guessing Game")
     print("*" * 40)
@@ -42,6 +44,7 @@ def start_game() -> None:
     num_of_tries: int = 1
     play_again: str = 'NO'
     number_to_be_guessed: int = random.randint(1, 10)
+    print('clue', number_to_be_guessed)
     # Ensure the user has to enter a number between 1 and 10 to continue
     while True:
         try:
@@ -59,15 +62,29 @@ def start_game() -> None:
             print(f"It's higher than {user_guess}")
             user_guess = int(input("Guess a number between 1 and 10 : "))
             num_of_tries += 1
+
             continue
-        else:
+        elif user_guess > number_to_be_guessed:
             print(f"It's lower than {user_guess}")
             user_guess = int(input("Guess a number between 1 and 10 : "))
             num_of_tries += 1
             continue
+
     stmt = f"Got it in {num_of_tries} attempt" if num_of_tries == 1 else f"Got it in {num_of_tries} attempts"
+    if not lowest_num_tries:
+        lowest_num_tries = num_of_tries
+    if not high_score:
+        high_score = num_of_tries
+    high_score = num_of_tries if num_of_tries < high_score else high_score
+    print('High score', high_score)
     print(stmt)
-    print("Game is over, thanks for playing the number guessing game")
+    play_again = input("Do you want to play again type YES or NO: ")
+    if play_again.upper() == 'NO':
+        print("Game is over, thanks for playing the number guessing game")
+    else:
+        print(f"The high score or least number of guesses you need to beat is {high_score}")
+        start_game()
+
 
 
 # This statement checks if the current file is being run directly (not imported as a module). If it's running
