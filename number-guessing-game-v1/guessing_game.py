@@ -45,7 +45,6 @@ def start_game() -> None:
     num_of_tries: int = 1
     play_again: str = 'NO'
     number_to_be_guessed: int = random.randint(1, 10)
-    print('clue', number_to_be_guessed)
     # Ensure the user has to enter a number between 1 and 10 to continue
     while True:
         try:
@@ -77,7 +76,6 @@ def start_game() -> None:
     if not high_score:
         high_score = num_of_tries
     high_score = num_of_tries if num_of_tries < high_score else high_score
-    print('High score', high_score)
     print(stmt)
     play_again = input("Do you want to play again type YES or NO: ")
     if play_again.upper() == 'NO':
