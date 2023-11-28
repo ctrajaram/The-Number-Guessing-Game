@@ -31,6 +31,7 @@ import random
 high_score: any = None
 lowest_num_tries: any = None
 
+
 def start_game() -> None:
     """
     Number Guessing Game function that allows a user to guess a number between 1 and 10 and lest them know
@@ -84,7 +85,6 @@ def start_game() -> None:
     else:
         print(f"The high score or least number of guesses you need to beat is {high_score}")
         start_game()
-
 
 
 # This statement checks if the current file is being run directly (not imported as a module). If it's running
